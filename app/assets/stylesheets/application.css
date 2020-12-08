@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+body {
+    margin: 0;
+}
+
+.main-boby {
+    margin: 0 100px;
+}
+header {
+    padding: 15px 10px;
+    background-color: #FCF7E4;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+#nav-drawer {
+    position: relative;
+    margin: 20px 20px;
+}
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+    display:none;
+}
+/*アイコンのスペース*/
+#nav-open {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    vertical-align: middle;
+}
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+    position: absolute;
+    height: 3px;/*線の太さ*/
+    width: 25px;/*長さ*/
+    border-radius: 3px;
+    background: #555;
+    display: block;
+    content: '';
+    cursor: pointer;
+}
+#nav-open span:before {
+    bottom: -8px;
+}
+#nav-open span:after {
+    bottom: -16px;
+}
+/*閉じる用の薄黒カバー*/
+#nav-close {
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 99;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+/*中身*/
+#nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;/*最前面に*/
+    width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+    max-width: 330px;/*最大幅（調整してください）*/
+    height: 100%;
+    background: #fff;/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);/*左に隠しておく*/
+}
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);/*中身を表示（右へスライド）*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+.logo {
+    mix-blend-mode: multiply;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/*フォーム全体*/
+#form1{
+    position:relative;/*フォームの相対位置*/
+    max-width:300px;/*フォームのサイズ*/
+    margin:20px 20px;/*フォームの下に余白*/
+
+    }
+    /*検索ボックス*/
+    #sbox{
+    position:absolute;/*フォームの絶対位置*/
+    left:0;
+    top:0;
+    outline:0;/*クリック時の青い枠線消す*/
+    height:50px;/*検索ボックスの高さ*/
+    padding:0 10px;/*テキスト位置調整*/
+    border-radius:2px;/*検索ボックスの角を丸める*/
+    background:#eee;/*検索ボックスの背景カラー*/
+    }
+    /*検索ボタン*/
+    #sbtn{
+    height:50px;
+    position:absolute;
+    left:255px;/*アイコン左右の位置調整*/
+    top:0;
+    background:none;
+    color:#666;
+    border:none;
+    font-size:20px;/*アイコンサイズ*/
+    }
+    /*検索ボタンマウスオーバー時*/
+    #sbtn:hover{
+    color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/
+    }
+
+    .home-content {
+      text-align: center;
+      margin-top: 10%;
+      color: #e6dcd8;
+    }
+    .home-content p {
+      font-size: 1.125rem;
+      margin: 10px 0 0px;
+    }
+
+    .page-title {
+      font-size: 5rem;
+      margin-bottom: auto;
+    }
+    .big-bg {
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+    #home {
+      background-image: url(/assets/main.jpeg);
+      min-height: 80vh;
+    }
+
+    h2 {
+      margin: 50px 0 20px 0;
+      font-size: 20px;
+      text-align: center;
+    }
+.grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+.item {
+  width: 30%;
+  margin: 10px 0 0 10px;
+}
+.item:nth-of-type(3n-2) {
+   margin-left: 0px;
+}
+.item img {
+  width: 100%;
+  height: auto;
+}
+
+  .l-wrapper {
+    margin: auto;
+    width: 250px;
+    display: flex;
+  }
+
+  figure img {
+    max-width: 100%;
+    height: auto;
+  }
+  .card_user {
+    background-color: #e6dcd8;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .16);
+    color: #212121;
+    text-decoration: none;
+    margin: 10px;
+  }
+  .card__name {
+    margin: 0;
+    padding: 5px;
+    font-size: 1.25rem;
+    order: 1;
+  }
+  .card__thumbnail {
+    margin: 0;
+    order: 0;
+  }
+  .card__body {
+    padding: 0 1rem;
+    margin: 0;
+  }
+  .card__text {
+    font-size: .75rem;
+  }
+  .card__text + .card__text {
+    margin-top: .5rem;
+  }
+  .card__text.-number {
+    text-align: right;
+  }
+  .card__footer {
+    padding: 0 1rem;
+    border-top: 1px solid #eeeae4;
+  }
+  .button {
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color .3s ease-in-out;
+  }
+  .button.-compact {
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+    background-color: #738e99;
+    color: #fff;
+    font-weight: bold;
+  }
+  .button.-compact:hover,
+  .button.-compact:focus {
+    background-color: #354e59;
+  }
+
+  .user_footer {
+    text-align: center;
+    margin: 30px 15px;
+  }
+  .btn.type{
+    width: 100%;
+    max-width: 340px;
+    padding: 15px 10px;
+    display: inline-block;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: black;
+    background-color: #e6dcd8;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.12), 0 3px 20px 0 rgba(0,0,0,.12), 0 5px 6px -2px rgba(0,0,0,.2);
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 5px;
+    }
+
+    .new_footer {
+      text-align: center;
+      margin: 30px 15px;
+    }
+
+footer {
+    padding: 25px 15px;
+    background-color: #FCF7E4;
+    text-align: center;
+}
