@@ -210,7 +210,7 @@ header {
   }
   .card__text {
     font-size: .75rem;
-    line-height: 5;
+    line-height: 1;
   }
   .card__text + .card__text {
     margin-top: .5rem;
